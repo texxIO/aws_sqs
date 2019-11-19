@@ -95,7 +95,7 @@ class AwsSqsWorker
                         if ($completed) {
                             $this->ackMessage($messages[$i]);
                         } else {
-                            //Step 4.2: If we can't elaborate the message then we should MAKE MESSAGE AVAILABLE to other workers who can
+                            //If a message fails to be processed will be made again available of other workers
                             $this->unlockMessage($messages[$i]);
                         }
 
